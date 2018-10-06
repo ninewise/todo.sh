@@ -1,0 +1,2 @@
+#!/bin/sh
+find /data/temporary -maxdepth 1 -mindepth 1

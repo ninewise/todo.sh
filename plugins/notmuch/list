@@ -1,0 +1,2 @@
+#!/bin/sh
+notmuch search --output=threads not tag:archived and not tag:killed
