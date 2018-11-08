@@ -1,2 +1,2 @@
 #!/bin/sh
-stat -c "%Y" "$1"
+stat -c "%Y" "/data/temporary/$1"

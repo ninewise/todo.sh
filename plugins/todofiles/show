@@ -1,6 +1,8 @@
 #!/bin/sh
-if [ -d "$1" ]; then
-	ls "$1" | less
+file="/data/temporary/$1"
+
+if [ -d "$file" ]; then
+	ls "$file" | less --no-lessopen
 else
-	less "$1"
+	less --no-lessopen "$file"
 fi

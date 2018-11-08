@@ -1,2 +1,2 @@
 #!/bin/sh
-basename "$1"
+echo "$1"

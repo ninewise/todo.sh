@@ -1,2 +1,2 @@
 #!/bin/sh
-notmuch show "$1" | less
+notmuch show "$1" | less --no-lessopen
