@@ -1,0 +1,4 @@
+#!/bin/sh
+first="$(notmuch search --output=messages "$1" | head -1)"
+notmuch show --body=false --format=json --entire-thread=false "$first" \
+	| jq --stream -r 'select(.[0][-1] == "timestamp") | .[1]'
