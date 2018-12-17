@@ -23,9 +23,8 @@ find "$conf" -mindepth 1 -maxdepth 1 | while read tool; do
 		date="$("$tool/date" "$item")"
 		printf "%d\t%s\n" "$date" "$tool/$item"
 	done
-done | sort -rn | cut --complement -f1 > "$temp"
+done | sort -rn | cut -f 2- > "$temp"
 
 tr '\n' '\0' < "$temp" | LESSOPEN="|$0 '$temp' '%s'" xargs -0 less -R
-# LESSOPEN="|$0 '$temp' '%s'" xargs -0 less -R
 
 rm "$temp"
