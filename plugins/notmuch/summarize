@@ -1,7 +1,0 @@
-#!/bin/sh
-first="$(notmuch search --output=messages "$1" | tail -1)"
-json="$(notmuch show --body=false --format=json --entire-thread=false "$first")"
-subject="$(echo "$json" | jq --stream -r 'select(.[0][-1] == "Subject") | .[1]')"
-sender="$(echo "$json" | jq --stream -r 'select(.[0][-1] == "From") | .[1]')"
-
-echo "$subject from $sender"

@@ -1,2 +1,3 @@
 #!/bin/sh
-notmuch search --output=threads not tag:archived and not tag:killed
+notmuch search --format=json not tag:archived and not tag:killed | \
+    jq -r '.[] | [.timestamp, "thread:" + .thread, .subject + " (" + .authors + ")"] | @tsv'
